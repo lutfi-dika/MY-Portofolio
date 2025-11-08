@@ -3,6 +3,7 @@
 /* 1. Atur Body */
 /* Ganti 80px dengan tinggi AKTUAL Navbar Anda */
 body {
+    background-color: #1a1a2e;
     padding-top: 80px; 
     /* Ini akan menggeser SEMUA konten (Hero, Marquee, About) ke bawah */
 }

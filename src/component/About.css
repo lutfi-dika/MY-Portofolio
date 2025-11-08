@@ -1,9 +1,10 @@
 /* About Section */
 .about-section {
     position: relative;
-    /* KUNCI PERBAIKAN: Menambahkan margin-top agar tidak tertutup elemen fixed (jika body padding-top tidak digunakan) */
-    /* Jika Anda menggunakan body {padding-top: 120px;}, hapus margin-top ini. */
-    /* margin-top: 120px; */ 
+    /* --- PERBAIKAN KRITIS: BACKGROUND-COLOR HILANG --- */
+    /* Menambahkan warna latar belakang agar section tidak putih di mobile */
+    background-color: #1e293b; /* Warna abu-abu gelap/biru gelap untuk kontras */
+    /* ------------------------------------------------ */
     
     min-height: 100vh;
     padding: 0 50px; 
@@ -21,7 +22,6 @@
     max-width: 1200px;
     margin: 0 auto; 
     width: 100%; 
-    /* Padding vertikal agar konten tidak menempel di sisi min-height */
     padding: 100px 0; 
 }
 
@@ -43,13 +43,14 @@
     transform: rotate(-5deg) scale(1.05);
 }
 
-/* Text container with glass effect (TWEAKED) */
+/* Text container with glass effect */
 .about-text {
     max-width: 800px; 
-    background: rgba(255, 255, 255, 0.08); /* Tweak Glassmorphism */
+    /* Warna latar belakang glassmorphism Anda */
+    background: rgba(255, 255, 255, 0.08); 
     padding: 50px; 
     border-radius: 20px;
-    backdrop-filter: blur(8px); /* Tweak Glassmorphism */
+    backdrop-filter: blur(8px); 
     animation: slideIn 1s ease forwards;
 }
 
@@ -81,45 +82,38 @@
     background: #6b21a8;
 }
 
-/* Slide in animation from right (Text) */
+/* Keyframes (Tidak diubah, sudah benar) */
 @keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
-/* NEW: Slide in animation from left (Image) */
 @keyframes slideInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
-/* Responsive for mobile */
+/* --- Responsive for mobile (Diperbaiki) --- */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
         text-align: center;
         padding: 50px 0; 
     }
+    
     .about-image img {
         width: 300px;
         margin-bottom: 30px;
     }
+    
+    /* Perbaikan pada Card Teks di Mobile */
     .about-text {
         padding: 30px; 
-        max-width: 90%;
+        width: 100%; /* Memastikan mengambil lebar penuh container */
+        max-width: 450px; /* Membatasi agar tidak terlalu lebar di layar tablet/mobile besar */
+        margin: 0 auto; /* Menengahkannya */
     }
+    
     .about-section {
         padding: 0 20px;
     }

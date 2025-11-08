@@ -1,0 +1,101 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; /* pastikan scroll diizinkan */
+}
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  padding: 0 20px;
+  perspective: 1000px; /* untuk efek 3D grid */
+}
+
+/* Teks hero */
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.hero p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: 30px;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-btn {
+  background-color: white;
+  color: #4f46e5;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s, background-color 0.3s;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+  background-color: #e0e0ff;
+}
+
+/* Grid 3D yang memenuhin hero */
+.grid-3d {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) rotateX(60deg); /* rotasi ke belakang */
+  z-index: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveGrid 10s linear infinite;
+}
+
+.jarak{
+    margin-bottom: 9%;
+}
+
+@keyframes moveGrid {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 500px; } /* gerak grid ke belakang */
+}
+
+/* Media query untuk layar kecil */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

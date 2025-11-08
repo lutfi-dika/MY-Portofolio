@@ -1,0 +1,183 @@
+/* --- PROJECTS SECTION CONTAINER --- */
+.projects-section-container {
+    padding: 80px 50px;
+    color: #1e293b;
+    text-align: center;
+}
+
+.project-section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #6366f1; /* Warna Aksen Biru/Ungu */
+}
+
+/* --- TOMBOL FILTER --- */
+.filter-buttons {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid #94a3b8;
+    background-color: transparent;
+    color: #475569;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* Gaya Tombol Aktif */
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #6366f1;
+    border-color: #6366f1;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
+}
+
+/* --- GRID PROYEK --- */
+.projects-grid {
+    display: grid;
+    /* Kolom responsif: min 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* --- KARTU PROYEK (video-card) --- */
+.project-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: 24px;
+}
+
+.project-name-title {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.project-description {
+    color: #64748b; 
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 1rem; 
+}
+
+/* --- CSS UNTUK TAGS/TEKNOLOGI (Digunakan:) --- */
+
+.project-tags-used {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px; 
+}
+
+.tags-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569; 
+    margin-right: 5px;
+    /* Membuat title tidak ikut wrap dengan tags jika memungkinkan */
+    flex-shrink: 0; 
+}
+
+.tag-item {
+    background-color: #e0e7ff; 
+    color: #4f46e5; 
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.75rem; 
+    font-weight: 500;
+    white-space: nowrap; 
+}
+
+.project-link-detail {
+    color: #3b82f6; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    /* Agar link berada di bawah tags */
+    display: block;
+    margin-top: 10px; 
+}
+
+.project-link-detail:hover {
+    color: #1d4ed8; 
+}
+
+.no-projects-found {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-top: 30px;
+    grid-column: 1 / -1; /* Membuat teks ini mengambil seluruh lebar grid */
+}
+
+/* --- MEDIA QUERIES (RESPONSIVE) --- */
+
+/* Tablet (md:grid-cols-2) */
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop Besar (xl:grid-cols-3) */
+@media (min-width: 1280px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .projects-section-container {
+        padding: 50px 10px;
+    }
+    .project-section-title {
+        font-size: 2rem;
+    }
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    .project-image {
+        height: 250px; /* Kurangi tinggi gambar di mobile */
+    }
+}

@@ -1,0 +1,35 @@
+.retro-grid-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Memberikan perspektif ke container agar elemen di dalamnya terlihat 3D */
+    perspective: 800px; 
+    z-index: 1; /* Di bawah konten utama */
+}
+
+.retro-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Membuat pola grid menggunakan linear-gradient */
+    background: 
+        repeating-linear-gradient(90deg, #1f2937 0px, #1f2937 1px, transparent 1px, transparent 50px), 
+        repeating-linear-gradient(0deg, #1f2937 0px, #1f2937 1px, transparent 1px, transparent 50px);
+    background-size: 50px 50px;
+    opacity: 0.2; /* Transparansi grid */
+    
+    /* Transformasi 3D utama: Rotasi ke belakang */
+    transform: 
+        rotateX(70deg)    /* Memiringkan ke belakang */
+        scale(1.5)       /* Sedikit diperbesar */
+        translateY(300px); /* Geser ke bawah agar grid mulai dari bawah */
+    
+    transform-origin: bottom center;
+    transition: transform 0.5s ease;
+}

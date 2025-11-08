@@ -1,0 +1,15 @@
+/* --- Tambahkan di App.css --- */
+
+/* 1. Atur Body */
+/* Ganti 80px dengan tinggi AKTUAL Navbar Anda */
+body {
+    padding-top: 80px; 
+    /* Ini akan menggeser SEMUA konten (Hero, Marquee, About) ke bawah */
+}
+
+/* 2. Opsional: Pastikan elemen fixed lainnya tidak mengganggu */
+.marquee-area,
+.hero {
+    /* Pastikan elemen ini tidak memiliki z-index yang lebih tinggi dari Navbar */
+    z-index: 1;
+}

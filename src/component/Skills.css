@@ -1,0 +1,93 @@
+/* --- Bagian Utama --- */
+.skills-section {
+    padding: 80px 50px;
+    background-color: #1f2937; /* Background Gelap */
+    color: #f3f4f6;
+}
+
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #60a5fa; /* Aksen Biru Cerah */
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+/* --- GRID LAYOUT --- */
+.skills-grid {
+    display: grid;
+    /* 3 Kolom */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+/* --- KARTU KETERAMPILAN --- */
+.skill-card {
+    background-color: #374151;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-top: 5px solid #60a5fa; /* Aksen warna di atas */
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(96, 165, 250, 0.4);
+}
+
+.skill-category {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #93c5fd;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* --- PROGRESS BAR --- */
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.progress-bar-bg {
+    height: 10px;
+    background-color: #4b5563; /* Latar belakang bar */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #60a5fa; /* Warna Progress */
+    border-radius: 5px;
+    transition: width 1s ease-out; /* Animasi pengisian bar */
+}
+
+/* --- Responsif (Mobile) --- */
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .skills-section {
+        padding: 50px 20px;
+    }
+}

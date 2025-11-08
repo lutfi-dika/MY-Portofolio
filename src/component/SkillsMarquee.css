@@ -1,0 +1,113 @@
+/* --- CONTAINER UTAMA SKILLS MARQUEE (Berlaku untuk Keduanya) --- */
+.skills-marquee-container, 
+.skills-marquee-container-reverse {
+    width: 100%;
+    overflow: hidden; 
+    padding: 20px 0;
+    /* Latar belakang yang lebih netral dan modern */
+    background-color: #0f172a; 
+    border-top: 2px solid #334155;
+    border-bottom: 2px solid #334155;
+    
+    position: static; 
+    z-index: auto; 
+}
+
+/* Jarak antara dua Marquee */
+.skills-marquee-container-reverse {
+    background-color: #1e293b; /* Warna background berbeda agar mudah dibedakan */
+    margin-top: 15px; 
+}
+
+/* TRACK BERJALAN (Berlaku untuk Keduanya) */
+.running-track,
+.running-track-reverse {
+    display: flex;
+    flex-wrap: nowrap; 
+    width: fit-content; 
+}
+
+/* ITEM SKILL INDIVIDU (Kartu Kecil) */
+.skill-item-marquee {
+    display: flex;
+    align-items: center;
+    margin-right: 50px; 
+    padding: 10px 20px;
+    /* Warna latar belakang kartu yang kontras (lebih terang) */
+    background-color: #1e293b;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0; 
+    
+    border: 1px solid #334155;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.skill-item-marquee:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.7); 
+}
+
+/* IKON SKILL */
+.skill-icon {
+    width: 30px; 
+    height: 30px;
+    margin-right: 12px;
+}
+
+/* NAMA SKILL */
+.skill-name-marquee {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #cbd5e1; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ------------------------------------------- */
+/* --- ANIMASI MARQUEE NORMAL (Kiri ke Kanan) --- */
+/* ------------------------------------------- */
+
+.running-track {
+    /* Menerapkan animasi normal (Kanan ke Kiri) */
+    animation: marquee-skills 60s linear infinite; 
+}
+
+@keyframes marquee-skills {
+    /* Dimulai di posisi 0 (kanan) */
+    from {
+        transform: translateX(0);
+    }
+    /* Bergeser ke kiri sebesar panjang total satu set data skill */
+    to {
+        transform: translateX(-33.33%); 
+    }
+}
+
+
+/* ------------------------------------------- */
+/* --- ANIMASI MARQUEE TERBALIK (Kanan ke Kiri) --- */
+/* ------------------------------------------- */
+
+.running-track-reverse {
+    /* Menerapkan animasi terbalik (Kiri ke Kanan) */
+    animation: marquee-skills-reverse 60s linear infinite; 
+}
+
+@keyframes marquee-skills-reverse {
+    /* Dimulai dari posisi negatif (kiri) */
+    from {
+        transform: translateX(-33.33%); 
+    }
+    /* Berakhir di posisi awal (kanan) */
+    to {
+        transform: translateX(0); 
+    }
+}
+
+/* --- INTERAKSI OPSIONAL: Berhenti Saat Hover --- */
+.skills-marquee-container:hover .running-track,
+.skills-marquee-container-reverse:hover .running-track-reverse {
+    animation-play-state: paused;
+}

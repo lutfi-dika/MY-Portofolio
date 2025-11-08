@@ -138,6 +138,7 @@ html, body {
     position: absolute; 
     top: 0; 
     left: 0;
+    /* PENTING: Harus 100% agar TRANSFORM di Lanyard.css bekerja. */
     width: 100%; 
     height: 100%; 
     z-index: 15; 
@@ -153,7 +154,11 @@ html, body {
         margin-top: -5vh; 
     }
     
-    /* LANYARD DI MOBILE: TETAP DI POSISI NAVBAR (Kanan Atas) */
+    /* LANYARD DI MOBILE: 
+       Ini hanya memastikan container-nya tetap penuh,
+       sehingga transformasi di Lanyard.css dapat memposisikannya
+       secara absolut di kanan atas.
+    */
     .lanyard-visual {
         position: absolute;
         top: 0; 

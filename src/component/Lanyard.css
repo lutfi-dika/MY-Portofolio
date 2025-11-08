@@ -33,10 +33,12 @@
 @media (max-width: 768px) {
     .lanyard-wrapper {
         /* POSISI MOBILE: KANAN ATAS (Navbar) */
-        /* Y: -45vh agar terangkat tinggi */
-        /* X: 40vw agar berada di kanan */
-        /* Scale: 0.5 untuk ukuran SEDANG */
-        transform: translate(30vw, -35vh) scale(0.9); 
+        
+        /* translate(40vw, -45vh) menggesernya ke kanan dan ke atas.
+           45vh memastikan ia terangkat tinggi, pas di area header/navbar.
+           scale(0.5) membuatnya 2x lebih besar dari desktop agar mudah dilihat di mobile.
+        */
+        transform: translate(40vw, -45vh) scale(0.5); 
         
         transform-origin: center;
     }

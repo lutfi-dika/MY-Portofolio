@@ -1,101 +1,143 @@
 /* Reset dasar */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto; /* pastikan scroll diizinkan */
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+/* --- HERO SECTION UTAMA --- */
 .hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-  padding: 0 20px;
-  perspective: 1000px; /* untuk efek 3D grid */
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    
+    /* --- PERBAIKAN KRITIS: BACKGROUND DASAR GELAP --- */
+    /* Ini memastikan grid terlihat di semua layar */
+    background-color: #1a1a2e; /* Warna dasar ungu/biru gelap */
+    /* Opsional: Tambahkan gradien dasar jika Anda tidak menggunakan elemen gradient terpisah */
+    /* background-image: linear-gradient(to top, #1a1a2e, #3a2469); */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Memastikan konten di tengah vertikal */
+    align-items: center; /* Memastikan konten di tengah horizontal */
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    padding: 0 20px;
+    perspective: 1000px;
+    z-index: 1; /* Pastikan hero di bawah navbar (z-index tinggi) */
+}
+
+/* Konten yang menampung teks dan tombol */
+.hero-content {
+    z-index: 2; /* Konten di atas grid */
+    position: relative;
+    /* Tambahkan margin-top untuk memberi ruang di bawah navbar */
+    margin-top: -10vh; /* Sesuaikan agar konten terlihat di tengah layar di bawah navbar */
 }
 
 /* Teks hero */
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 20px;
-  z-index: 2;
-  position: relative;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  margin-bottom: 30px;
-  z-index: 2;
-  position: relative;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: 30px;
 }
 
 .hero-btn {
-  background-color: white;
-  color: #4f46e5;
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: transform 0.3s, background-color 0.3s;
-  z-index: 2;
-  position: relative;
+    background-color: white;
+    color: #4f46e5;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s, background-color 0.3s;
+    display: inline-block; /* Membuat transisi lebih baik */
 }
 
 .hero-btn:hover {
-  transform: scale(1.05);
-  background-color: #e0e0ff;
+    transform: scale(1.05);
+    background-color: #e0e0ff;
 }
 
-/* Grid 3D yang memenuhin hero */
+/* --- GRID 3D --- */
 .grid-3d {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform: translate(-50%, -50%) rotateX(60deg); /* rotasi ke belakang */
-  z-index: 0;
-  pointer-events: none;
-  background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: moveGrid 10s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200vw; /* Lebarkan agar memenuhi viewport yang dirotasi */
+    height: 200vh;
+    transform-style: preserve-3d;
+    /* Rotasi agar grid terlihat dari bawah */
+    transform: translate(-50%, -50%) rotateX(60deg); 
+    z-index: 0;
+    pointer-events: none;
+    
+    /* Tingkatkan opacity garis agar terlihat di mobile */
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px);
+        
+    background-size: 50px 50px;
+    animation: moveGrid 10s linear infinite;
 }
 
-.jarak{
-    margin-bottom: 9%;
+.jarak {
+    margin-bottom: 9%; /* Pertahankan jarak teks jika diperlukan */
 }
 
 @keyframes moveGrid {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 500px; } /* gerak grid ke belakang */
+    0% { background-position: 0 0; }
+    100% { background-position: 0 500px; } 
 }
 
-/* Media query untuk layar kecil */
+/* --- GRADIENT FADING TOP (Optional: Menghasilkan efek ungu di atas) --- */
+.hero-gradient-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Tinggi gradien */
+    z-index: 1; 
+    /* Gradien dari ungu terang ke transparan */
+    background-image: linear-gradient(to bottom, #7f00ff, rgba(26, 26, 46, 0)); 
+}
+
+
+/* --- MEDIA QUERY: LAYAR KECIL --- */
+@media (max-width: 768px) {
+    .hero-content {
+        /* Sesuaikan posisi konten agar tidak terlalu tinggi */
+        margin-top: -5vh; 
+    }
+    
+    .grid-3d {
+        /* Mungkin perlu sedikit rotasi yang berbeda di mobile */
+        /* transform: translate(-50%, -50%) rotateX(70deg); */
+        background-size: 40px 40px; /* Perkecil ukuran grid */
+    }
+}
+
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .hero-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .hero-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }

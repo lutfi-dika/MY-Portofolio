@@ -5,8 +5,8 @@ import './SkillsMarquee.css';
 const skillData = [
     { name: "React JS", icon: "https://cloudmatetechnologies.com/wp-content/uploads/2024/06/react.js.png" },
     { name: "JavaScript", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" },
-    { name: "HTML5", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png" },
-    { name: "CSS3", icon: "https://diengcyber.com/wp-content/uploads/2024/02/CSS-Logo.png" },
+    { name: "HTML", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png" },
+    { name: "CSS", icon: "https://diengcyber.com/wp-content/uploads/2024/02/CSS-Logo.png" },
     { name: "PHP", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPwizyTOpl4zxp3NiNfmzndUUApZW-ptEr3A&s" },
     // { name: "Git & GitHub", icon: "/img/icons/git.svg" },
     // { name: "Figma", icon: "/img/icons/figma.svg" },

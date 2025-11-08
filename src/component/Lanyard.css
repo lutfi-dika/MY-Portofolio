@@ -36,7 +36,7 @@
         /* Y: -45vh agar terangkat tinggi */
         /* X: 40vw agar berada di kanan */
         /* Scale: 0.5 untuk ukuran SEDANG */
-        transform: translate(30vw, -35vh) scale(0.9); 
+        transform: translate(30vw, -15vh) scale(0.9); 
         
         transform-origin: center;
     }

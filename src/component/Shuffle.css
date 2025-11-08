@@ -1,0 +1,45 @@
+/* Shuffle.css */
+
+.shuffle-parent {
+  /* Harus inline-block agar split text bekerja dengan baik */
+  display: inline-block;
+  white-space: normal;
+  word-wrap: break-word;
+  will-change: transform;
+  line-height: 1;
+
+  /* Anda mungkin perlu menyesuaikan font-size dan font-family di sini 
+       atau override di Hero.css menggunakan kelas .shuffle-title
+    */
+  /* font-size: 4rem; */
+  /* font-family: 'Press Start 2P', sans-serif; */
+
+  text-transform: uppercase;
+  visibility: hidden;
+}
+
+.shuffle-parent.is-ready {
+  /* Membuat teks terlihat setelah setup GSAP selesai */
+  visibility: visible;
+}
+
+.shuffle-char-wrapper {
+  /* Wrapper untuk setiap karakter */
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: baseline;
+  position: relative;
+}
+
+.shuffle-char-wrapper > span {
+  /* Inner span yang akan di-transform/geser */
+  display: inline-flex;
+  will-change: transform;
+}
+
+.shuffle-char {
+  /* Karakter individual */
+  line-height: 1;
+  display: inline-block;
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+/* Lanyard.css */
+
+.lanyard-wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* --- PENYESUAIAN UNTUK POSISI NAVIGASI (Kanan Atas) ---
+    Kode ini menyebabkan Lanyard hilang karena ia didorong sangat jauh dari posisi tengah. 
+    Namun, ini adalah cara yang diperlukan jika container (.lanyard-visual) diset 100% x 100%
+  */
+  
+  /* SCALE: Dikecilkan menjadi 0.25 (25%) */
+  /* TRANSLATE Y: Didorong ke atas (-48vh) untuk mencapai batas atas layar */
+  /* TRANSLATE X: Didorong sedikit ke kanan (15vw) */
+  transform: translate(30vw, -20vh) scale(0.9); 
+  
+  transform-origin: center;
+}
+
+/* ========================================================================= */
+/* --- MEDIA QUERY (MOBILE: <= 768px) --- */
+/* ========================================================================= */
+
+/* ========================================================================= */
+/* --- MEDIA QUERY (MOBILE: <= 768px) --- */
+/* ========================================================================= */
+
+@media (max-width: 768px) {
+    .lanyard-wrapper {
+        /* POSISI MOBILE: KANAN ATAS (Navbar) */
+        /* Y: -45vh agar terangkat tinggi */
+        /* X: 40vw agar berada di kanan */
+        /* Scale: 0.5 untuk ukuran SEDANG */
+        transform: translate(30vw, -35vh) scale(0.9); 
+        
+        transform-origin: center;
+    }
+}

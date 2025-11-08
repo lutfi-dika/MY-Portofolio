@@ -13,7 +13,7 @@ const Marquee = () => {
             {/* Area Logo (Posisi Tetap) */}
             <div className="logo-area">
                 <img 
-                    src="/path/to/your/logo.png" 
+                    src="https://i.pinimg.com/1200x/1d/b9/9d/1db99daa9371bf0989f05a0bc12e2b9e.jpg" 
                     alt="Logo Perusahaan" 
                     className="logo-image" 
                 />

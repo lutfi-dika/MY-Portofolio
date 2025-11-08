@@ -155,8 +155,7 @@ html, body {
     }
     
     /* LANYARD DI MOBILE: 
-       Ini hanya memastikan container-nya tetap penuh,
-       sehingga transformasi di Lanyard.css dapat memposisikannya
+       Memastikan container penuh agar Lanyard.css dapat memposisikannya
        secara absolut di kanan atas.
     */
     .lanyard-visual {

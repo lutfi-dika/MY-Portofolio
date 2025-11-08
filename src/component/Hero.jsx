@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Hero.css';
 import Lanyard from './Lanyard'; 
-// Asumsi Lanyard diimpor dengan benar
+// Pastikan Anda mengimpor komponen Lanyard Anda dengan benar
 
 const Hero = () => {
     
@@ -45,7 +45,7 @@ const Hero = () => {
                             key={index}
                             className={`char-container ${index < visibleCharsCount ? 'is-visible' : ''}`}
                             // Atur delay transisi untuk staggered effect
-                            style={{ transitionDelay: `${index * .25}s` }} 
+                            style={{ transitionDelay: `${index * 0.03}s` }} 
                         >
                             {/* Tampilkan spasi sebagai spasi non-breaking agar layout aman */}
                             {char === ' ' ? '\u00A0' : char}

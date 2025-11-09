@@ -1,42 +1,42 @@
-/* Lanyard.css */
+/* ========================================================================= */
+/* --- LANYARD 3D WRAPPER (DESKTOP) --- */
+/* ========================================================================= */
 
 .lanyard-wrapper {
-  position: relative;
-  z-index: 0;
+  position: absolute;
+  top: 50%;
+  right: -30%; /* posisi di kanan layar */
+  transform: translateY(-50%) scale(1); /* rata tengah vertikal + skala */
+  transform-origin: center right; /* skala dari kanan */
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* --- PENYESUAIAN UNTUK POSISI NAVIGASI (Kanan Atas) ---
-    Kode ini menyebabkan Lanyard hilang karena ia didorong sangat jauh dari posisi tengah. 
-    Namun, ini adalah cara yang diperlukan jika container (.lanyard-visual) diset 100% x 100%
-  */
-  
-  /* SCALE: Dikecilkan menjadi 0.25 (25%) */
-  /* TRANSLATE Y: Didorong ke atas (-48vh) untuk mencapai batas atas layar */
-  /* TRANSLATE X: Didorong sedikit ke kanan (15vw) */
-  transform: translate(30vw, -20vh) scale(0.9); 
-  
-  transform-origin: center;
 }
 
 /* ========================================================================= */
-/* --- MEDIA QUERY (MOBILE: <= 768px) --- */
+/* --- RESPONSIVE: TABLET & MOBILE (<= 768px) --- */
 /* ========================================================================= */
 
-/* ========================================================================= */
-/* --- MEDIA QUERY (MOBILE: <= 768px) --- */
-/* ========================================================================= */
+@media (max-width: 1024px) {
+  .lanyard-wrapper {
+    top: 30%;
+    right: -40%;
+    transform: translateY(-50%) scale(0.8);
+  }
+}
 
 @media (max-width: 768px) {
-    .lanyard-wrapper {
-        /* Menggunakan skala yang lebih kecil (0.4) dari 0.5 
-           untuk stabilitas model 3D (agar tali tidak terputus) 
-        */
-        transform: translate(40vw, -45vh) scale(0.); 
-        
-        transform-origin: center;
-    }
+  .lanyard-wrapper {
+    top: -40%;
+    right: 30%;
+    transform: translateY(-50%) scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .lanyard-wrapper {
+    transform: translate(50%, 10%) scale(0.35);
+  }
 }

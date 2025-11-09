@@ -6,12 +6,12 @@ import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
-// Pastikan file ini ada di direktori yang sama!
-import cardGLB from './card.glb'; 
+// replace with your own imports, see the usage snippet for details
+import cardGLB from './card.glb';
 import lanyard from './lanyard.png';
 
 import * as THREE from 'three';
-import './Lanyard.css'; // Opsional jika Anda ingin CSS terpisah
+import './Lanyard.css';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 

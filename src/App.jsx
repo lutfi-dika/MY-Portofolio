@@ -1,37 +1,45 @@
-import React, { useState, useEffect } from "react"; // <-- Import useState dan useEffect
+import React, { useState, useEffect } from "react";
+// PENTING: Semua komponen diimpor dari "./component/..."
 import Navbar from "./component/Navbar";
 import Hero from "./component/Hero";
+import CurvedLoop from "./component/CurvedLoop";
 import About from "./component/About";
 import Marquee from "./component/Marquee";
 import SkillsMarquee from "./component/SkillsMarquee";
 import SkillsMarqueeReverse from "./component/SkillsMarqueeReverse";
 import Projects from "./component/Projects";
+import RunningText from "./component/RunningText";
 import Contact from "./component/Contact";
 import Footer from "./component/Footer";
-import LoadingPage from "./component/LoadingPage"; // <-- Import LoadingPage
+import LoadingPage from "./component/LoadingPage";
 import "./App.css";
 
 const App = () => {
-    // State untuk mengontrol status loading
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Simulasikan proses loading selama 3 detik (sesuaikan waktunya)
-        // Di aplikasi nyata, Anda bisa memanggil API atau menunggu data/gambar dimuat di sini.
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 3000); // 3000ms = 3 detik
+        }, 3000);
 
-        // Cleanup function
         return () => clearTimeout(timer);
     }, []);
 
-    // Jika isLoading true, tampilkan LoadingPage
     if (isLoading) {
         return <LoadingPage />;
     }
 
-    // Jika isLoading false, tampilkan seluruh aplikasi
+    // ✅ PERBAIKAN 2: Mendefinisikan variabel 'velocity'
+    const velocity = 50;
+
+    const curvedLoopProps = {
+        marqueeText: "SAYA LUFFI ANDIKA Front Ent DEVELOPER  UI/UX DESIGNER & Poster Digital ✦ KREATIVITAS DAN TEKNOLOGI MENJADI SATU. 🚀",
+        speed: 2.5,
+        curveAmount: 400,
+        direction: "left",
+        interactive: true,
+    };
+
     return (
         <div className="app">
             {/* 1. Navbar */}
@@ -47,35 +55,29 @@ const App = () => {
                 <Marquee />
             </div>
 
-            {/* 4. About */}
+            {/* ⭐️ 4. CURVED LOOP DENGAN MARGIN NEGATIF (SOLUSI HILANG BACKGROUND) ⭐️ */}
+            <div
+                className="CurvedLoopSeparator"
+                style={{
+                    // Nilai ini adalah kunci untuk menghilangkan background solid.
+                    marginTop: '-60px'
+                }}
+            >
+                <CurvedLoop {...curvedLoopProps} />
+            </div>
+
+            {/* 5. About */}
             <div className="About">
                 <About />
             </div>
 
-            {/* 5. SkillsMarquee (Arah Normal) */}
-            <div className="SkillsMarquee">
-                <SkillsMarquee />
-            </div>
-
-            {/* 6. SkillsMarqueeReverse (Arah Terbalik) */}
-            <div className="SkillsMarqueeReverse">
-                <SkillsMarqueeReverse />
-            </div>
-
-            {/* 7. Projects */}
-            <div className="Projects">
-                <Projects />
-            </div>
-
-            {/* 8. Contact */}
-            <div className="Contact">
-                <Contact />
-            </div>
-
-            {/* 9. Footer */}
-            <div className="Footer">
-                <Footer />
-            </div>
+            {/* 6. Komponen Skills & Projects */}
+            <div className="SkillsMarquee"><SkillsMarquee /></div>
+            <div className="SkillsMarqueeReverse"><SkillsMarqueeReverse /></div>
+            <div className="Projects"><Projects /></div>
+            <div className="RunningText"><RunningText />  </div>
+            <div className="Contact"><Contact /></div>
+            <div className="Footer"><Footer /></div>
         </div>
     );
 }

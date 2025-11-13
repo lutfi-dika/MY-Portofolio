@@ -15,7 +15,7 @@ const Hero = () => {
         if (visibleCharsCount < chars.length) {
             const timer = setTimeout(() => {
                 setVisibleCharsCount(prevCount => prevCount + 1);
-            }, 50); // Jeda 50ms antar huruf (Staggered effect speed)
+            }, 60); // Jeda 50ms antar huruf (Staggered effect speed)
 
             return () => clearTimeout(timer);
         }

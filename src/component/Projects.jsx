@@ -39,6 +39,15 @@ const projectsData = [
         link: "https://www.figma.com/design/MOIrbN4t1p6eGCLPokGXg7/HIDUPNGOEDING?t=Ec9wrLtJo94u8tQ6-0",
         tags: ["Figma", "UI/UX Design", "Prototyping"] // <--- TAGS BARU
     },
+    { 
+        id: 5, 
+        name: "Web Sekolah", 
+        category: "Front end", 
+        description: "Website sekolah modern berbasis teknologi.", 
+        image: "https://smktelekomunikasitelesandi.sch.id/public/src/logotelesandi.png", 
+        link: "https://lutfi-dika.github.io/SMK-TELEKOMUNIKASI-TELESANDI-BEKASI/",
+        tags: ["React", "CSS"] // <--- TAGS BARU
+    },
 ];
 
 const categories = ['All', 'Website', 'UI/UX'];

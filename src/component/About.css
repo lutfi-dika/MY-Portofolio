@@ -112,6 +112,7 @@
         width: 100%; /* Memastikan mengambil lebar penuh container */
         max-width: 450px; /* Membatasi agar tidak terlalu lebar di layar tablet/mobile besar */
         margin: 0 auto; /* Menengahkannya */
+        text-align: justify;
     }
     
     .about-section {

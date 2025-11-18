@@ -1,19 +1,17 @@
 /* --- Tambahkan di App.css --- */
-html{
-scroll-behavior: smooth;
-}
 
 /* 1. Atur Body */
 /* Ganti 80px dengan tinggi AKTUAL Navbar Anda */
 body {
-    background-color: #1a1a2e;
-    padding-top: 80px; 
-    /* Ini akan menggeser SEMUA konten (Hero, Marquee, About) ke bawah */
+  scroll-behavior: smooth;
+  background-color: #1a1a2e;
+  padding-top: 80px;
+  /* Ini akan menggeser SEMUA konten (Hero, Marquee, About) ke bawah */
 }
 
 /* 2. Opsional: Pastikan elemen fixed lainnya tidak mengganggu */
 .marquee-area,
 .hero {
-    /* Pastikan elemen ini tidak memiliki z-index yang lebih tinggi dari Navbar */
-    z-index: 1;
+  /* Pastikan elemen ini tidak memiliki z-index yang lebih tinggi dari Navbar */
+  z-index: 1;
 }

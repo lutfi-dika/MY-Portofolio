@@ -1,121 +1,338 @@
-/* About Section */
-.about-section {
-    position: relative;
-    /* --- PERBAIKAN KRITIS: BACKGROUND-COLOR HILANG --- */
-    /* Menambahkan warna latar belakang agar section tidak putih di mobile */
-    background-color: #1e293b; /* Warna abu-abu gelap/biru gelap untuk kontras */
-    /* ------------------------------------------------ */
-    
-    min-height: 100vh;
-    padding: 0 50px; 
-    color: white;
-    overflow: hidden;
-    display: flex; 
-    align-items: center; 
+/* Warna dasar */
+:root {
+  --color-blue-900-30: rgba(30, 58, 138, 0.3); /* blue-900/30 */
+  --color-blue-500-30: rgba(59, 130, 246, 0.3); /* blue-500/30 */
+  --color-blue-300: #93c5fd; /* blue-300 */
+  --color-blue-400: #60a5fa; /* blue-400 */
+  --color-cyan-400: #22d3ee; /* cyan-400 */
+  --color-blue-500: #3b82f6; /* blue-500 */
+  --color-gray-300: #d1d5db; /* gray-300 */
+  --color-blue-800-40: rgba(30, 64, 175, 0.4); /* blue-800/40 */
+  --color-cyan-500-40: rgba(6, 182, 212, 0.4); /* cyan-500/40 */
+  --color-black: #000;
 }
 
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto; 
-    width: 100%; 
-    padding: 100px 0; 
+/* Animasi Kunci (Keyframes) */
+@keyframes cursor-blink {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-blue-400);
+  }
 }
 
-/* Image container (DITAMBAH ANIMASI) */
-.about-image {
-    opacity: 0; 
-    transform: translateX(-50px);
-    animation: slideInLeft 1s ease forwards 0.3s; 
+@keyframes floating-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.about-image img {
-    width: 400px; 
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s;
+/* --------------------------- */
+/* 1. Hero Section Container */
+/* --------------------------- */
+
+.hero-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column-reverse; /* flex-col-reverse */
+  justify-content: space-between;
+  padding: 5rem 1.5rem 0; /* pt-20, px-6 (padding-top: 5rem, padding-x: 1.5rem) */
 }
 
-.about-image img:hover {
-    transform: rotate(-5deg) scale(1.05);
+/* Media Query untuk ukuran tablet ke atas (md:...) */
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row; /* md:flex-row */
+    padding: 6rem 3rem 0; /* md:pt-24, md:px-12 */
+  }
 }
 
-/* Text container with glass effect */
-.about-text {
-    max-width: 800px; 
-    /* Warna latar belakang glassmorphism Anda */
-    background: rgba(255, 255, 255, 0.08); 
-    padding: 50px; 
-    border-radius: 20px;
-    backdrop-filter: blur(8px); 
-    animation: slideIn 1s ease forwards;
+/* --------------------------- */
+/* 2. Hero Text (Kiri) */
+/* --------------------------- */
+
+.hero-text-container {
+  flex: 1; /* flex-1 */
+  text-align: center; /* text-center */
+  margin-top: 1.5rem; /* mt-6 */
+  margin-bottom: 3rem; /* Tambahan margin bawah agar tidak terlalu mepet di mobile */
+  line-height: 1.5; /* Tambahan untuk space-y-6 */
 }
 
-.about-text h2 {
-    font-size: 3rem; 
-    margin-bottom: 25px; 
+@media (min-width: 768px) {
+  .hero-text-container {
+    text-align: left; /* md:text-left */
+    margin-top: 0; /* md:mt-0 */
+    margin-bottom: 0;
+  }
 }
 
-.about-text p {
-    font-size: 1.2rem; 
-    margin-bottom: 20px; 
-    line-height: 1.7; 
+/* Jarak antar elemen dalam hero-text (space-y-6) */
+.hero-text-container > * {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.hero-text-container > *:first-child {
+  margin-top: 0;
 }
 
-/* Button */
-.btn-about {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #ff00ff;
-    border-radius: 30px;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    transition: transform 0.3s, background 0.3s;
+/* --------------------------- */
+/* 3. Label Atas (✨ Welcome...) */
+/* --------------------------- */
+
+.hero-top-label {
+  background-color: var(--color-blue-900-30);
+  color: var(--color-blue-300);
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border-radius: 9999px; /* rounded-full */
+  font-size: 0.875rem; /* text-sm */
+  letter-spacing: 0.05em; /* tracking-widest */
+  border: 1px solid var(--color-blue-500-30);
+  display: inline-block;
+  margin-bottom: 1rem !important; /* mb-4, menimpa space-y-6 */
 }
 
-.btn-about:hover {
-    transform: scale(1.05);
-    background: #6b21a8;
+/* --------------------------- */
+/* 4. Judul Utama (Explore My Work) */
+/* --------------------------- */
+
+.hero-title {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.25; /* leading-tight */
+  /* Gradient text (text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500) */
+  background-image: linear-gradient(
+    to right,
+    var(--color-cyan-400),
+    var(--color-blue-500)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Drop shadow (drop-shadow-[0_0_15px_rgba(59,130,246,0.7)]) */
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.7));
 }
 
-/* Keyframes (Tidak diubah, sudah benar) */
-@keyframes slideIn {
-    0% { opacity: 0; transform: translateX(50px); }
-    100% { opacity: 1; transform: translateX(0); }
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem; /* md:text-6xl */
+  }
 }
 
-@keyframes slideInLeft {
-    0% { opacity: 0; transform: translateX(-50px); }
-    100% { opacity: 1; transform: translateX(0); }
+.no-wrap {
+  white-space: nowrap; /* whitespace-nowrap */
 }
 
-/* --- Responsive for mobile (Diperbaiki) --- */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 50px 0; 
-    }
-    
-    .about-image img {
-        width: 300px;
-        margin-bottom: 30px;
-    }
-    
-    /* Perbaikan pada Card Teks di Mobile */
-    .about-text {
-        padding: 30px; 
-        width: 100%; /* Memastikan mengambil lebar penuh container */
-        max-width: 450px; /* Membatasi agar tidak terlalu lebar di layar tablet/mobile besar */
-        margin: 0 auto; /* Menengahkannya */
-        text-align: justify;
-    }
-    
-    .about-section {
-        padding: 0 20px;
-    }
+/* --------------------------- */
+/* 5. Text Rotator (H2) */
+/* --------------------------- */
+
+.text-rotator-h2 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: var(--color-blue-400);
+  border-right: 4px solid var(--color-blue-400); /* border-r-4 border-blue-400 */
+  padding-right: 0.5rem; /* pr-2 */
+  /* Animasi Kursor (animate-cursor) */
+  animation: cursor-blink 0.75s step-end infinite;
+  display: inline-block; /* Agar border-right berfungsi sebagai kursor */
+}
+
+@media (min-width: 640px) {
+  .text-rotator-h2 {
+    font-size: 1.875rem; /* sm:text-3xl */
+  }
+}
+
+@media (min-width: 768px) {
+  .text-rotator-h2 {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+}
+
+/* --------------------------- */
+/* 6. Deskripsi (P) */
+/* --------------------------- */
+
+.hero-description {
+  margin-top: 1rem; /* mt-4 */
+  max-width: 75ch; /* max-w-3xl (kurang lebih 3xl) */
+  color: var(--color-gray-300);
+  font-size: 1rem; /* text-base */
+}
+
+@media (min-width: 640px) {
+  .hero-description {
+    font-size: 1.125rem; /* sm:text-lg */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-description {
+    margin-top: 1.5rem; /* md:mt-6 */
+    font-size: 1.25rem; /* md:text-xl */
+  }
+}
+
+/* Penataan warna dan bold di dalam deskripsi (hanya untuk warna yang dikonversi) */
+.hero-description .font-semibold {
+  font-weight: 600;
+}
+.hero-description .text-cyan-400 {
+  color: var(--color-cyan-400);
+} /* untuk responsive dan Tailwind CSS */
+/* Warna spesifik lainnya (tetap menggunakan kelas inline jika tidak dikonversi ke variabel) */
+
+/* --------------------------- */
+/* 7. Skill Tags */
+/* --------------------------- */
+
+.skill-tags-container {
+  display: flex;
+  flex-wrap: wrap; /* flex-wrap */
+  justify-content: center; /* justify-center */
+  gap: 0.75rem; /* gap-3 */
+  margin-top: 1.5rem; /* mt-6 */
+}
+
+@media (min-width: 768px) {
+  .skill-tags-container {
+    justify-content: flex-start; /* md:justify-start */
+    margin-top: 2.5rem; /* md:mt-10 */
+  }
+}
+
+.skill-tag {
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  background-color: var(--color-blue-800-40);
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid var(--color-cyan-500-40);
+  font-size: 0.875rem; /* text-sm */
+  cursor: pointer;
+  color: var(--color-gray-300); /* Tambahan: agar teks terlihat */
+  /* Efek skill-glow (simulasi: shadow) */
+  box-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.skill-tag:hover {
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.7);
+}
+
+/* --------------------------- */
+/* 8. Tombol (Buttons) */
+/* --------------------------- */
+
+.hero-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* gap-4 */
+  margin-top: 1.5rem; /* mt-6 */
+  justify-content: center; /* justify-center */
+}
+
+@media (min-width: 768px) {
+  .hero-buttons-container {
+    justify-content: flex-start; /* md:justify-start */
+  }
+}
+
+.hero-buttons-container button {
+  padding: 0.5rem 1.5rem; /* px-6 py-2 */
+  border-radius: 0.75rem; /* rounded-xl */
+  font-weight: 600; /* font-semibold */
+  font-size: 1rem; /* text-base */
+  transition: all 0.3s ease; /* transition-all duration-300 */
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  /* Tombol hover (hover:shadow-xl hover:scale-105) */
+}
+
+.hero-buttons-container button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1); /* shadow-xl */
+}
+
+@media (min-width: 640px) {
+  .hero-buttons-container button {
+    padding: 0.75rem 2rem; /* sm:px-8 sm:py-3 */
+    font-size: 1.125rem; /* sm:text-lg */
+  }
+}
+
+/* Tombol Primary (Hire Me) */
+.btn-primary {
+  background-color: var(--color-cyan-400);
+  color: var(--color-black);
+}
+
+/* Tombol Secondary (See Projects) */
+.btn-secondary {
+  border: 2px solid var(--color-blue-400);
+  color: var(--color-blue-400);
+  background-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-blue-400);
+  color: var(--color-black);
+}
+
+/* Link di dalam tombol (pastikan link mewarisi gaya tombol) */
+.hero-buttons-container a {
+  text-decoration: none;
+  color: inherit;
+  text-align: justify;
+}
+
+
+/* --------------------------- */
+/* 9. 3D Model Container (Kanan) */
+/* --------------------------- */
+
+.hero-model-container {
+  flex: 1; /* flex-1 */
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem; /* mt-6 */
+  /* Animasi floating */
+  animation: floating-animation 4s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .hero-model-container {
+    margin-top: 0; /* md:mt-0 */
+  }
+}
+
+.model-viewer-element {
+  width: 100%;
+  max-width: 400px; /* max-w-[400px] */
+  height: 300px; /* h-[300px] */
+  border-radius: 1rem; /* rounded-2xl */
+  background-color: transparent;
+}
+
+@media (min-width: 640px) {
+  .model-viewer-element {
+    max-width: 450px; /* sm:max-w-[450px] */
+    height: 400px; /* sm:h-[400px] */
+  }
+}
+
+@media (min-width: 768px) {
+  .model-viewer-element {
+    max-width: 500px; /* md:max-w-[500px] */
+    height: 500px; /* md:h-[500px] */
+  }
 }

@@ -21,17 +21,17 @@ const projectsData = [
         link: "https://magical-torte-1fd6d7.netlify.app/",
         tags: ["HTML", "CSS3", "JavaScript", "Responsive" ,"Github"] // <--- TAGS BARU
     },
+    // {
+    //     id: 3,
+    //     name: "Website Jualan Dian Tas Galery",
+    //     category: "Website",
+    //     description: "Website e-commerce yang menjual berbagai jenis tas fashion.",
+    //     image: "https://i.pinimg.com/1200x/50/9c/d5/509cd5d81a4d708f07b7b81e0560c121.jpg",
+    //     link: "https://lutfi-dika.github.io/website-jualan-Dian_tas-galery/",
+    //     tags: ["HTML", "Bootstrap", "GitHub Pages", "Github"] // <--- TAGS BARU
+    // },
     {
         id: 3,
-        name: "Website Jualan Dian Tas Galery",
-        category: "Website",
-        description: "Website e-commerce yang menjual berbagai jenis tas fashion.",
-        image: "https://i.pinimg.com/1200x/50/9c/d5/509cd5d81a4d708f07b7b81e0560c121.jpg",
-        link: "https://lutfi-dika.github.io/website-jualan-Dian_tas-galery/",
-        tags: ["HTML", "Bootstrap", "GitHub Pages", "Github"] // <--- TAGS BARU
-    },
-    {
-        id: 4,
         name: "UI/UX Cakralogy",
         category: "UI/UX",
         description: "Desain UI/UX untuk platform edukasi berbasis teknologi.",
@@ -40,7 +40,7 @@ const projectsData = [
         tags: ["Figma", "UI/UX Design", "Prototyping"] // <--- TAGS BARU
     },
     {
-        id: 5,
+        id: 4,
         name: "Web Sekolah",
         category: "Website",
         description: "Website sekolah modern berbasis teknologi.",
@@ -49,7 +49,7 @@ const projectsData = [
         tags: ["React", "CSS", "Github" ] // <--- TAGS BARU
     },
     {
-        id: 6,
+        id: 5,
         name: "Portofolio",
         category: "UI/UX",
         description: "Website Portofolio berbasis teknologi UI/UX.",
@@ -58,7 +58,7 @@ const projectsData = [
         tags: ["Figma"] // <--- TAGS BARU
     },
     {
-        id: 7,
+        id: 6,
         name: "Website CakraLogy",
         category: "Front End",
         description: "Website CakraLogy adalah website edukasi yang interaktif ke user yang berbasis teknologi modern",

@@ -1,0 +1,42 @@
+.rt-container {
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.rt-track {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* jarak antar pengulangan teks */
+  white-space: nowrap;
+  will-change: transform;
+  animation-name: rt-move;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.rt-content {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 3rem;
+  color: #f1f1f1;
+  padding-right: 10px;
+}
+
+@keyframes rt-move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .rt-content {
+    font-size: 14px;
+  }
+}

@@ -8,6 +8,8 @@ import Marquee from "./component/Marquee";
 import SkillsMarquee from "./component/SkillsMarquee";
 import SkillsMarqueeReverse from "./component/SkillsMarqueeReverse";
 import Projects from "./component/Projects";
+import RunningTextNew from "./component/RunningTextNew";
+import PerjalananSection from "./component/PerjalananSection";
 import RunningText from "./component/RunningText";
 import Contact from "./component/Contact";
 import Footer from "./component/Footer";
@@ -75,6 +77,8 @@ const App = () => {
             <div className="SkillsMarquee"><SkillsMarquee /></div>
             <div className="SkillsMarqueeReverse"><SkillsMarqueeReverse /></div>
             <div className="Projects"><Projects /></div>
+            <div className="RunningTextNew"><RunningTextNew /></div>
+            <div className="PerjalananSection"><PerjalananSection /></div>
             <div className="RunningText"><RunningText />  </div>
             <div className="Contact"><Contact /></div>
             <div className="Footer"><Footer /></div>

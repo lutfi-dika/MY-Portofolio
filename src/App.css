@@ -1,4 +1,7 @@
 /* --- Tambahkan di App.css --- */
+html{
+scroll-behavior: smooth;
+}
 
 /* 1. Atur Body */
 /* Ganti 80px dengan tinggi AKTUAL Navbar Anda */

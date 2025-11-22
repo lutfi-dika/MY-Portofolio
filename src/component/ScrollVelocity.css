@@ -1,0 +1,76 @@
+/* === WRAPPER UTAMA === */
+.rt-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0b0b0b, #111, #0b0b0b);
+  padding: 25px 0;
+  border-radius: 18px;
+  border: 1px solid #222;
+  position: relative;
+}
+
+/* === TEKS BERJALAN === */
+.rt-text {
+  display: flex;
+  white-space: nowrap;
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #fff;
+  gap: 50px;
+  padding: 0 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* === SETIAP LOOP TEKS === */
+.rt-text span {
+  opacity: 0.95;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 991px) {
+  .rt-text {
+    font-size: 1.8rem;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rt-wrapper {
+    padding: 18px 0;
+  }
+
+  .rt-text {
+    font-size: 1.4rem;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rt-text {
+    font-size: 1.2rem;
+    gap: 20px;
+  }
+}
+
+/* === EFEK FADE LEFT-RIGHT === */
+.rt-wrapper::before,
+.rt-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.rt-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #0b0b0b, transparent);
+}
+
+.rt-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #0b0b0b, transparent);
+}

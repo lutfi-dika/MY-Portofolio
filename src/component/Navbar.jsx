@@ -23,8 +23,12 @@ const Navbar = () => {
           <li><a href="#Hero">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#Experience">Experience</a></li>
+          <li><a href="#Karier">Karier</a></li>
           <li><a href="#Contact">Contact</a></li>
+
         </ul>
+        {/* Experience */}
 
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           <span></span>

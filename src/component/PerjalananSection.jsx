@@ -17,7 +17,7 @@ export default function PerjalananSection({ title = "Perjalanan Karier", items }
     const timeline = items && items.length ? items : defaultItems;
 
     return (
-        <section className="perjalanan-section">
+        <section id="Karier" className="perjalanan-section">
             <div className="perjalanan-header">
                 <h2 className="perjalanan-title">{title}</h2>
                 <p className="perjalanan-sub">Riwayat kerja, magang, dan proyek penting</p>

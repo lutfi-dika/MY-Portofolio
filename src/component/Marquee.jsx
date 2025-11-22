@@ -3,7 +3,7 @@ import './Marquee.css';
 
 const Marquee = () => {
     // Teks yang akan berjalan (diulang-ulang)
-   const runningText = "👋 Selamat Datang di Portofolio Saya! — Saya Lutfi Andika, Web Developer & UI/UX Designer. 🚀 Kreativitas dan Teknologi Menjadi Satu.";
+   const runningText = "Selamat Datang di Portofolio Saya! | Saya Lutfi Andika, Web Developer & UI/UX Designer. Kreativitas dan Teknologi Menjadi Satu.";
 
     // Ulangi teks 10 kali untuk memastikan teks berjalan panjang
     const repeatedText = runningText.repeat(10); 

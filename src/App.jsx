@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-// PENTING: Semua komponen diimpor dari "./component/..."
+
+// PENTING: Semua komponen dari folder component
 import Navbar from "./component/Navbar";
 import Hero from "./component/Hero";
 import CurvedLoop from "./component/CurvedLoop";
@@ -10,10 +11,15 @@ import SkillsMarqueeReverse from "./component/SkillsMarqueeReverse";
 import Projects from "./component/Projects";
 import RunningTextNew from "./component/RunningTextNew";
 import PerjalananSection from "./component/PerjalananSection";
+
+// ⭐ INI PENTING: import CardSwap + Card
+import Experience from "./component/Experience";
+
 import RunningText from "./component/RunningText";
 import Contact from "./component/Contact";
 import Footer from "./component/Footer";
 import LoadingPage from "./component/LoadingPage";
+
 import "./App.css";
 
 const App = () => {
@@ -31,11 +37,13 @@ const App = () => {
         return <LoadingPage />;
     }
 
-    // ✅ PERBAIKAN 2: Mendefinisikan variabel 'velocity'
+    // Variabel tambahan (kalau nanti dibutuhkan)
     const velocity = 50;
 
+    // Curved Loop props
     const curvedLoopProps = {
-        marqueeText: "SAYA LUFFI ANDIKA Front Ent DEVELOPER  UI/UX DESIGNER & Poster Digital ✦ KREATIVITAS DAN TEKNOLOGI MENJADI SATU. 🚀",
+        marqueeText:
+            "SAYA LUTFI ANDIKA Front End DEVELOPER  UI/UX DESIGNER & Poster Digital ✦ KREATIVITAS DAN TEKNOLOGI MENJADI SATU. ",
         speed: 2.5,
         curveAmount: 400,
         direction: "left",
@@ -44,6 +52,7 @@ const App = () => {
 
     return (
         <div className="app">
+
             {/* 1. Navbar */}
             <Navbar />
 
@@ -52,18 +61,13 @@ const App = () => {
                 <Hero />
             </div>
 
-            {/* 3. Marquee Notifikasi */}
-            <div>
-                <Marquee />
-            </div>
+            {/* 3. Marquee pemberitahuan */}
+            <Marquee />
 
-            {/* ⭐️ 4. CURVED LOOP DENGAN MARGIN NEGATIF (SOLUSI HILANG BACKGROUND) ⭐️ */}
+            {/* 4. Curved Loop */}
             <div
                 className="CurvedLoopSeparator"
-                style={{
-                    // Nilai ini adalah kunci untuk menghilangkan background solid.
-                    marginTop: '-60px'
-                }}
+                style={{ marginTop: "-60px" }}
             >
                 <CurvedLoop {...curvedLoopProps} />
             </div>
@@ -73,17 +77,44 @@ const App = () => {
                 <About />
             </div>
 
-            {/* 6. Komponen Skills & Projects */}
-            <div className="SkillsMarquee"><SkillsMarquee /></div>
-            <div className="SkillsMarqueeReverse"><SkillsMarqueeReverse /></div>
-            <div className="Projects"><Projects /></div>
-            <div className="RunningTextNew"><RunningTextNew /></div>
-            <div className="PerjalananSection"><PerjalananSection /></div>
-            <div className="RunningText"><RunningText />  </div>
-            <div className="Contact"><Contact /></div>
-            <div className="Footer"><Footer /></div>
+            {/* 6. Skills & Projects */}
+            <div className="SkillsMarquee">
+                <SkillsMarquee />
+            </div>
+
+            <div className="SkillsMarqueeReverse">
+                <SkillsMarqueeReverse />
+            </div>
+
+            <div className="Projects">
+                <Projects />
+            </div>
+
+            <div className=""><Experience /></div>
+
+
+            <div className="RunningTextNew">
+                <RunningTextNew />
+            </div>
+
+            <div className=""><PerjalananSection /> </div>
+
+            {/* 8. Running text tambahan */}
+            <div className="RunningText">
+                <RunningText />
+            </div>
+
+            {/* 9. Contact */}
+            <div className="Contact">
+                <Contact />
+            </div>
+
+            {/* 10. Footer */}
+            <div className="Footer">
+                <Footer />
+            </div>
         </div>
     );
-}
+};
 
 export default App;

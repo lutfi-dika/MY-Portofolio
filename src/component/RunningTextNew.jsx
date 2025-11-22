@@ -7,14 +7,14 @@ export default function RunningTextNew() {
         <div className="rt-wrapper">
             {/* Running text ke kiri */}
             <SingleRunningText
-                text="💼 Perjalanan karir dimulai dari langkah kecil — Terus belajar, terus berkembang!"
+                text="Perjalanan karir dimulai dari langkah kecil Terus belajar terus berkembang!"
                 speed={90}
                 direction="left"
             />
 
             {/* Running text ke kanan */}
             <SingleRunningText
-                text="🚀 Setiap tantangan adalah peluang baru untuk naik level dalam karir profesionalmu!"
+                text="Setiap tantangan adalah peluang baru untuk naik level dalam karir profesionalmu!"
                 speed={70}
                 direction="right"
             />
